@@ -39,7 +39,7 @@
   },
   "types": "lib/index.ts",
   "peerDependencies": {
-    "@tscircuit/capacity-autorouter": "*",
+    "@tscircuit/capacity-autorouter": ">=0.0.905",
     "graphics-debug": "*"
   }
 }
