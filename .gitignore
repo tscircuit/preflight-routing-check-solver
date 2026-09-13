@@ -5,3 +5,4 @@ cosmos-export
 dist
 
 .vercel
+.env*

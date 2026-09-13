@@ -1,5 +1,7 @@
 # @tscircuit/preflight-routing-check-solver
 
+[Open the solver debugger](https://preflight-routing-check-solver.vercel.app).
+
 Incremental preflight analysis for Simple Route JSON, built on `@tscircuit/solver-utils`. This is a source-distributed GitHub package following the tscircuit handbook's algorithm repository template.
 
 ```ts
