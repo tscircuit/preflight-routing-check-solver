@@ -130,5 +130,9 @@ test("stepping is deterministic and preserves reusable constructor input", () =>
   expect(solver.getOutput()).toEqual(run(blockedBoard))
   expect(input).toEqual(before)
   expect(solver.getConstructorParams()[0]).toEqual(before)
-  expect(solver.visualize().lines?.length).toBe(16)
+  expect(
+    solver
+      .visualize()
+      .lines?.filter((line) => line.label?.includes("Connection requirement")),
+  ).toHaveLength(16)
 })

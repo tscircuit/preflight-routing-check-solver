@@ -1,9 +1,4 @@
-import { GenericSolverDebugger } from "@tscircuit/solver-utils/react"
-import { PreflightRoutingSolver } from "lib"
+import { PreflightRoutingDebugger } from "./components/PreflightRoutingDebugger"
 import { alternateLayerBoard } from "tests/fixtures/boards"
 
-export default (
-  <GenericSolverDebugger
-    createSolver={() => new PreflightRoutingSolver(alternateLayerBoard)}
-  />
-)
+export default <PreflightRoutingDebugger input={alternateLayerBoard} />

@@ -37,7 +37,9 @@ bun run start
 bun run build:site
 ```
 
-The Cosmos sidebar includes blocked-board, open-passage, and alternate-layer fixtures. Red connections have a blocking diagnostic; green means no obstruction has been established yet. The graphics are schematic projections, not routed copper or DRC signoff.
+The Cosmos sidebar includes blocked-board, open-passage, alternate-layer and unsupported-outline fixtures. `visualize()` starts with the autorouter's `convertSrjToGraphicsObject`, retaining layer-colored obstacles, terminal markers, trace geometry and hover labels. It adds routing bounds, dashed connection requirements, magenta rings on blocked terminals, a legend, measurements and a final findings report. Pending and skipped checks are distinguished from completed checks; no-block results do not imply successful routing.
+
+The fixture viewer supports Step, Solve, Pause, Reset, physical-layer selection, SVG downloads and structured output. Its responsive SVG report and optional canvas pan/zoom view use drawing-unit text sizes consistently with exported images. The graphics show input geometry and check findings, not newly routed copper or DRC signoff.
 
 The tests cover a 16-obligation barrier, a matching open passage, another usable layer, a legal passage smaller than a grid cell, same-net aliases, terminal-pad attachment, unsupported inputs, work limits, deterministic stepping and input preservation.
 

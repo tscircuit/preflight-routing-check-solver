@@ -1,3 +1,4 @@
+import { visualizePreflightRouting } from "./visualizePreflightRouting"
 import { BaseSolver } from "@tscircuit/solver-utils"
 import { ConnectivityMap } from "circuit-json-to-connectivity-map"
 import type { GraphicsObject } from "graphics-debug"
@@ -381,24 +382,11 @@ export class PreflightRoutingSolver extends BaseSolver {
   }
 
   override visualize(): GraphicsObject {
-    const blocked = new Set(
-      this.output.diagnostics.map((d) => d.connectionName),
-    )
-    return {
-      rects: this.input.obstacles.map((o) => ({
-        center: o.center,
-        width: o.width,
-        height: o.height,
-        fill: "#334155",
-        label: o.obstacleId,
-      })),
-      lines: this.input.connections
-        .filter((c) => c.pointsToConnect.length === 2)
-        .map((c) => ({
-          points: c.pointsToConnect.map((p) => ({ x: p.x, y: p.y })),
-          strokeColor: blocked.has(c.name) ? "#ef4444" : "#22c55e",
-          label: c.name,
-        })),
-    }
+    return visualizePreflightRouting(this.input, this.output, {
+      solved: this.solved,
+      failed: this.failed,
+      error: this.error,
+      completedConnections: this.connectionIndex,
+    })
   }
 }
