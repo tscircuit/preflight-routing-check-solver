@@ -3,3 +3,5 @@ bun.lock
 .cursor
 cosmos-export
 dist
+
+.vercel

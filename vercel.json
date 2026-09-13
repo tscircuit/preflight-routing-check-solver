@@ -1,0 +1,7 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "bun run build:site",
+  "installCommand": "bun install",
+  "outputDirectory": "cosmos-export",
+  "framework": null
+}

@@ -1,9 +1,9 @@
-# @tscircuit/preflight-routing-solver
+# @tscircuit/preflight-routing-check-solver
 
 Incremental preflight analysis for Simple Route JSON, built on `@tscircuit/solver-utils`. This is a source-distributed GitHub package following the tscircuit handbook's algorithm repository template.
 
 ```ts
-import { PreflightRoutingSolver } from "@tscircuit/preflight-routing-solver"
+import { PreflightRoutingSolver } from "@tscircuit/preflight-routing-check-solver"
 
 const solver = new PreflightRoutingSolver(simpleRouteJson)
 while (!solver.solved && !solver.failed) solver.step()
