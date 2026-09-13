@@ -158,6 +158,13 @@ export function visualizePreflightRouting(
     panelY -= lineHeight * 0.4
   }
   paragraph("FIXED-OBSTACLE CONNECTIVITY", "#0f172a")
+  if (input.obstacles.length <= 4) {
+    for (const [index, obstacle] of input.obstacles.entries())
+      paragraph(
+        `${obstacle.obstacleId ?? `Obstacle ${index + 1}`} occupies ${obstacle.layers.join(", ")}${obstacle.layers.length === 1 ? " only" : ""}.`,
+      )
+  }
+
   if (state.failed)
     paragraph(
       state.error ??
