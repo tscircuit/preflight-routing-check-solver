@@ -45,6 +45,15 @@ export class PreflightRoutingSolver extends BaseSolver {
       if (!Number.isFinite(value) || value <= 0)
         throw new Error("Preflight limits must be positive finite numbers")
     }
+    // Each connection can yield once per obstacle and, for a narrow frontier,
+    // once per visited grid cell. Also allow a completion step per connection
+    // and the final solver step, so inputs within the work limits can finish.
+    this.MAX_ITERATIONS = Math.max(
+      this.MAX_ITERATIONS,
+      input.connections.length *
+        (input.obstacles.length + this.options.maxGridCells + 1) +
+        1,
+    )
   }
 
   override _setup() {
